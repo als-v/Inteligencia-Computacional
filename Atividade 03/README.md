@@ -1,4 +1,4 @@
-# Projeto 03 - Template Matching
+# Projeto 03 - Momentos de HU X Contagem de pixels
 O objetivo deste projeto, é utilizar o algoritmo Knn sob a base de dados de dígitos, disponibilizado pelo professor (mais detalhes no [arquivo](data/README.md)), e a acurácia particionando a imagem, e calculando tanto os momentos de HU como os pixels.
 
 # Como executar
