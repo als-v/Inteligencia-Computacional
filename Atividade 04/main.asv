@@ -1,0 +1,217 @@
+% Exemplo
+
+
+function [] = main(nomeArquivoSaida, folder, numBlocosV, numBlocosH)
+
+dirListing = dir(folder);
+
+arquivoTeste = strcat(append(nomeArquivoSaida, '_LBP_teste'), '.txt');
+fidTeste = fopen(arquivoTeste,'w'); 
+
+arquivoTreino = strcat(append(nomeArquivoSaida, '_LBP_treino'), '.txt');
+fidTreino = fopen(arquivoTreino,'w'); 
+
+for d = 3:length(dirListing)
+   
+    if (dirListing(d).isdir == 1)
+    
+        fileName = fullfile(folder,dirListing(d).name) ; 
+        fopen(fileName);
+        
+        arquivos = dir(fileName); 
+        indexTreinoTeste = 0;
+        
+            for i = 3 : length(arquivos) 
+                
+                if (arquivos(i).isdir == 0)
+                    indexTreinoTeste = indexTreinoTeste + 1;
+                    
+                    if (indexTreinoTeste <= 18)
+                            nomeArquivo = fullfile(fileName,arquivos(i).name)  ;
+                            fopen(fileName);
+                            
+                            %nameClasse = fileName(end-4: end);
+                            tamArq = size(arquivos(i).name);
+
+                            if (tamArq(2) == 14)
+                                nameClasse = arquivos(i).name(end-9: end-7);
+                            else
+                                nameClasse = arquivos(i).name(end-8: end-6);
+                            end
+                            
+
+                            %nomeArquivo 
+                            I = imread(nomeArquivo) ;
+                            
+                            disp('LBP - TESTE')
+                            geraBlocos(I, nameClasse, numBlocosV,numBlocosH, fidTeste, true, false ) ;
+                    else
+    
+                            nomeArquivo = fullfile(fileName,arquivos(i).name)  ;
+                            fopen(fileName);
+
+                            %nameClasse = fileName(end-4: end)    ;
+                            tamArq = size(arquivos(i).name);
+
+                            if (tamArq(2) == 14)
+                                nameClasse = arquivos(i).name(end-9: end-7);
+                            else
+                                nameClasse = arquivos(i).name(end-8: end-6);
+                            end
+                            %nomeArquivo 
+
+                            I = imread(nomeArquivo) ;
+
+                            disp('LBP - TREINO')
+                            geraBlocos(I, nameClasse, numBlocosV,numBlocosH, fidTreino, true, false ) ;
+                    end
+            
+                         
+                end
+                
+            end
+    end 
+end
+
+fclose ( fidTeste );
+fclose ( fidTreino );
+
+arquivoTeste = strcat(append(nomeArquivoSaida, '_GLCM_teste'), '.txt');
+fidTeste = fopen(arquivoTeste,'w'); 
+
+arquivoTreino = strcat(append(nomeArquivoSaida, '_GLCM_treino'), '.txt');
+fidTreino = fopen(arquivoTreino,'w'); 
+
+for d = 3:length(dirListing)
+   
+    if (dirListing(d).isdir == 1)
+    
+        fileName = fullfile(folder,dirListing(d).name) ; 
+        fopen(fileName);
+        
+        arquivos = dir(fileName); 
+        indexTreinoTeste = 0;
+        
+            for i = 3 : length(arquivos) 
+                
+                if (arquivos(i).isdir == 0)
+                    indexTreinoTeste = indexTreinoTeste + 1;
+                    
+                    if (indexTreinoTeste <= 18)
+                            nomeArquivo = fullfile(fileName,arquivos(i).name)  ;
+                            fopen(fileName);
+
+                            %nameClasse = fileName(end-4: end)    ;
+                            tamArq = size(arquivos(i).name);
+
+                            if (tamArq(2) == 14)
+                                nameClasse = arquivos(i).name(end-9: end-7);
+                            else
+                                nameClasse = arquivos(i).name(end-8: end-6);
+                            end
+
+                            %nomeArquivo 
+                            I = imread(nomeArquivo) ;
+                            
+                            disp('GLCM - TESTE')
+                            geraBlocos(I, nameClasse, numBlocosV,numBlocosH, fidTeste, false, true ) ;
+                    else
+    
+                            nomeArquivo = fullfile(fileName,arquivos(i).name)  ;
+                            fopen(fileName);
+
+                            %nameClasse = fileName(end-4: end)    ;
+                            tamArq = size(arquivos(i).name);
+
+                            if (tamArq(2) == 14)
+                                nameClasse = arquivos(i).name(end-9: end-7);
+                            else
+                                nameClasse = arquivos(i).name(end-8: end-6);
+                            end
+                            %nomeArquivo 
+
+                            I = imread(nomeArquivo) ;
+
+                            disp('GLCM - TREINO')
+                            geraBlocos(I, nameClasse, numBlocosV,numBlocosH, fidTreino, false, true ) ;
+                    end
+            
+                         
+                end
+                
+            end
+    end 
+end
+
+fclose ( fidTeste );
+fclose ( fidTreino );
+
+arquivoTeste = strcat(append(nomeArquivoSaida, '_GLCM_LBP_teste'), '.txt');
+fidTeste = fopen(arquivoTeste,'w'); 
+
+arquivoTreino = strcat(append(nomeArquivoSaida, '_GLCM_LBP_treino'), '.txt');
+fidTreino = fopen(arquivoTreino,'w'); 
+
+for d = 3:length(dirListing)
+   
+    if (dirListing(d).isdir == 1)
+    
+        fileName = fullfile(folder,dirListing(d).name) ; 
+        fopen(fileName);
+        
+        arquivos = dir(fileName); 
+        indexTreinoTeste = 0;
+        
+            for i = 3 : length(arquivos) 
+                
+                if (arquivos(i).isdir == 0)
+                    indexTreinoTeste = indexTreinoTeste + 1;
+                    
+                    if (indexTreinoTeste <= 18)
+                            nomeArquivo = fullfile(fileName,arquivos(i).name)  ;
+                            fopen(fileName);
+
+                            %nameClasse = fileName(end-4: end)    ;
+                            tamArq = size(arquivos(i).name);
+
+                            if (tamArq(2) == 14)
+                                nameClasse = arquivos(i).name(end-9: end-7);
+                            else
+                                nameClasse = arquivos(i).name(end-8: end-6);
+                            end
+
+                            %nomeArquivo 
+                            I = imread(nomeArquivo) ;
+                            
+                            disp('GLCM_LBP - TESTE')
+                            geraBlocos(I, nameClasse, numBlocosV,numBlocosH, fidTeste, true, true ) ;
+                    else
+    
+                            nomeArquivo = fullfile(fileName,arquivos(i).name)  ;
+                            fopen(fileName);
+
+                            %nameClasse = fileName(end-4: end)    ;
+                            tamArq = size(arquivos(i).name);
+
+                            if (tamArq(2) == 14)
+                                nameClasse = arquivos(i).name(end-9: end-7);
+                            else
+                                nameClasse = arquivos(i).name(end-8: end-6);
+                            end
+                            %nomeArquivo 
+
+                            I = imread(nomeArquivo) ;
+
+                            disp('GLCM_LBP - TREINO')
+                            geraBlocos(I, nameClasse, numBlocosV,numBlocosH, fidTreino, true, true ) ;
+                    end
+            
+                         
+                end
+                
+            end
+    end 
+end
+
+fclose ( fidTeste );
+fclose ( fidTreino );
