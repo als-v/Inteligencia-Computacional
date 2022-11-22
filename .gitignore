@@ -1,4 +1,6 @@
 *.png
 **/data/**
+**/data_augmented/**
+**/data_augmented_discarted/**
 **/__pycache__/**
 *.txt
