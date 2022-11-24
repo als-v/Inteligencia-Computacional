@@ -4,3 +4,5 @@
 **/data_augmented_discarted/**
 **/__pycache__/**
 *.txt
+*.csv
+*.zip
